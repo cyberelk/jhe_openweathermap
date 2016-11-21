@@ -36,6 +36,10 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 
 	public function showAction() {
 
+		//include css file for owfont
+		//<link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+		$this->response->addAdditionalHeaderData('<link rel="stylesheet" type="text/css" href="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Css/owfont-regular.css" />');
+
 		//simple test data which should be made dynamical during the development process
 
 		$openweathermapAPIkey = 'c81fecb0e191e18ad078746ccaba3cc9';
@@ -61,18 +65,27 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 
 		$jsonObj = json_decode($response);
 
-
+//t3lib_utility_Debug::debug($jsonObj);
 		$weather = $jsonObj->weather; //array of possible data
 		//t3lib_utility_Debug::debug($weather);
 		$temperature = round($jsonObj->main->temp);
 		$temperature_min = $jsonObj->main->temp_min;
 		$temperature_max = $jsonObj->main->temp_max;
 
+		$now = date('U'); //get current time
+
+		if($now > $jsonObj->sys->sunrise and $now < $jsonObj->sys->sunset){
+			$suffix = '-d';
+		}else{
+			$suffix = '-n';
+		}
+
 		$this->view->assign('city', $currentUserCity);
 		$this->view->assign('weather', $weather);
 		$this->view->assign('temperature', $temperature);
 		$this->view->assign('temperature_min', $temperature_min);
 		$this->view->assign('temperature_max', $temperature_max);
+		$this->view->assign('dayOrNight', $suffix);
 
 
 

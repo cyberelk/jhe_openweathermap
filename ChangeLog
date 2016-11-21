@@ -1,0 +1,10 @@
+2016-11-21 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.1
+
+    * Implemented owfont (http://websygen.github.io/owfont/) for displaying
+      the weather conditions without graphics
+    * Added a gitignore file
+    * Added this ChangeLog
+
+2016-11-10 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.0
+
+    * Initial state (proof of concept)
