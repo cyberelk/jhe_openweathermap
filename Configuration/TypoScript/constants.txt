@@ -1,0 +1,14 @@
+plugin.tx_jheopenweathermap {
+	view {
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jhe_openweathermap/Resources/Private/Templates/
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jhe_openweathermap/Resources/Private/Partials/
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jhe_openweathermap/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jheopenweathermap//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

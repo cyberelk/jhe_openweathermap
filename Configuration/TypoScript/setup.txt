@@ -1,0 +1,39 @@
+plugin.tx_jheopenweathermap {
+	view {
+		templateRootPath = {$plugin.tx_jheopenweathermap.view.templateRootPath}
+		partialRootPath = {$plugin.tx_jheopenweathermap.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_jheopenweathermap.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_jheopenweathermap.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+plugin.tx_jheopenweathermap._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-jhe-openweathermap table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-jhe-openweathermap table th {
+		font-weight:bold;
+	}
+
+	.tx-jhe-openweathermap table td {
+		vertical-align:top;
+	}
+)
