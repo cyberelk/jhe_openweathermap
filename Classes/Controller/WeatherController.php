@@ -37,37 +37,36 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 	public function showAction() {
 
 		//include css file for owfont
-		//<link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
 		$this->response->addAdditionalHeaderData('<link rel="stylesheet" type="text/css" href="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Css/owfont-regular.css" />');
 
-		//simple test data which should be made dynamical during the development process
+		//retrive data from ts settings
+		$openweathermapApiKey = $this->settings['openweathermapApiKey'];
+		$openWeatherMapApiUrl = $this->settings['openWeatherMapApiUrl'];
+		$openWeatherMapApiCountry = $this->settings['openWeatherMapApiCountry'];
+		$openWeatherMapApiLang = $this->settings['openWeatherMapApiLang'];
+		$openWeatherMapApiUnits = $this->settings['openWeatherMapApiUnits'];
 
-		$openweathermapAPIkey = 'c81fecb0e191e18ad078746ccaba3cc9';
+		//get fe_user data to show the correct local weather data
+		if($GLOBALS['TSFE']->fe_user && $GLOBALS['TSFE']->fe_user->user['zip']){
+			$currentZip = $GLOBALS['TSFE']->fe_user->user['zip'];
+		} else {
+			$currentZip = $this->settings['defaultZip'];
+		}
+		if($GLOBALS['TSFE']->fe_user && $GLOBALS['TSFE']->fe_user->user['city']){
+			$currentCity = $GLOBALS['TSFE']->fe_user->user['city'];
+		} else {
+			$currentCity = $this->settings['defaultCity'];
+		}
 
-		//$plzBonn = '53225';
-		$country = 'de';
+		//assemble the openWeatherMap API link
+		$request = $openWeatherMapApiUrl . '?zip=' . $currentZip . ',' . $openWeatherMapApiCountry . '&APPID=' . $openweathermapApiKey . '&lang=' . $openWeatherMapApiLang . '&units=' . $openWeatherMapApiUnits;
 
-
-		$currentUser = $GLOBALS['TSFE']->fe_user->user;
-
-		//t3lib_utility_Debug::debug($currentUser);
-
-		$currentUserCity = $GLOBALS['TSFE']->fe_user->user['city'];
-		$currentUserZip = $GLOBALS['TSFE']->fe_user->user['zip'];
-
-
-
-		$request = 'http://api.openweathermap.org/data/2.5/weather?zip=' . $currentUserZip . ',' . $country . '&APPID=' . $openweathermapAPIkey . '&lang=de&units=metric';
-
-		//t3lib_utility_Debug::debug($request);
-
+		//retrieve the actual weather data from openWeatherMap API and decode the jason data
 		$response = file_get_contents($request);
-
 		$jsonObj = json_decode($response);
 
-//t3lib_utility_Debug::debug($jsonObj);
+		//compile the openWeatherMap data for use in the fluid template
 		$weather = $jsonObj->weather; //array of possible data
-		//t3lib_utility_Debug::debug($weather);
 		$temperature = round($jsonObj->main->temp);
 		$temperature_min = $jsonObj->main->temp_min;
 		$temperature_max = $jsonObj->main->temp_max;
@@ -80,20 +79,12 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 			$suffix = '-n';
 		}
 
-		$this->view->assign('city', $currentUserCity);
+		//assign the data to the fluid template
+		$this->view->assign('city', $currentCity);
 		$this->view->assign('weather', $weather);
 		$this->view->assign('temperature', $temperature);
 		$this->view->assign('temperature_min', $temperature_min);
 		$this->view->assign('temperature_max', $temperature_max);
 		$this->view->assign('dayOrNight', $suffix);
-
-
-
-
-
-
-
 	}
-
-
 }

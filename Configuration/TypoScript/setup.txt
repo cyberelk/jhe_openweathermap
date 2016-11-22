@@ -11,6 +11,15 @@ plugin.tx_jheopenweathermap {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+	settings {
+		openweathermapApiKey = {$plugin.tx_jheopenweathermap.settings.openweathermapApiKey}
+		openWeatherMapApiUrl = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiUrl}
+		openWeatherMapApiCountry = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiCountry}
+		openWeatherMapApiLang = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiLang}
+		openWeatherMapApiUnits = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiUnits}
+		defaultZip = {$plugin.tx_jheopenweathermap.settings.defaultZip}
+		defaultCity = {$plugin.tx_jheopenweathermap.settings.defaultCity}
+	}
 }
 
 plugin.tx_jheopenweathermap._CSS_DEFAULT_STYLE (

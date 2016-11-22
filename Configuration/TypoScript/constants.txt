@@ -11,4 +11,21 @@ plugin.tx_jheopenweathermap {
 		# cat=plugin.tx_jheopenweathermap//a; type=string; label=Default storage PID
 		storagePid =
 	}
+	settings {
+		# cat=plugin.tx_jheopenweathermap/settings/001; type=string; label=OpenWeatherMap API Key
+		openweathermapApiKey =
+		# cat=plugin.tx_jheopenweathermap/settings/002; type=string; label=OpenWatherMap API URL
+		openWeatherMapApiUrl =
+		# cat=plugin.tx_jheopenweathermap/settings/003; type=string; label=OpenWatherMap API Country
+		openWeatherMapApiCountry =
+		# cat=plugin.tx_jheopenweathermap/settings/004; type=string; label=OpenWeatherMap API Language
+		openWeatherMapApiLang =
+		# cat=plugin.tx_jheopenweathermap/settings/005; type=string; label=OpenWeatherMap API Units
+		openWeatherMapApiUnits =
+		# cat=plugin.tx_jheopenweathermap/settings/006; type=string; label=Default zip
+		defaultZip =
+		# cat=plugin.tx_jheopenweathermap/settings/007; type=string; label=Default city
+		defaultCity =
+	}
+
 }
