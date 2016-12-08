@@ -2,6 +2,8 @@
 
     * Send data to the fluid template only if the response from
       api.openweathermap.org is valid
+    * Added the TS settings to constants.txt (ToDo: Should be removed before
+      publishing!!!)
 
 2016-11-22 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.2
 
