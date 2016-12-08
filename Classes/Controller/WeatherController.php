@@ -65,26 +65,30 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 		$response = file_get_contents($request);
 		$jsonObj = json_decode($response);
 
-		//compile the openWeatherMap data for use in the fluid template
-		$weather = $jsonObj->weather; //array of possible data
-		$temperature = round($jsonObj->main->temp);
-		$temperature_min = $jsonObj->main->temp_min;
-		$temperature_max = $jsonObj->main->temp_max;
+		if($jsonObj){
+			//compile the openWeatherMap data for use in the fluid template
+			$weather = $jsonObj->weather; //array of possible data
+			$temperature = round($jsonObj->main->temp);
+			$temperature_min = $jsonObj->main->temp_min;
+			$temperature_max = $jsonObj->main->temp_max;
 
-		$now = date('U'); //get current time
+			$now = date('U'); //get current time
 
-		if($now > $jsonObj->sys->sunrise and $now < $jsonObj->sys->sunset){
-			$suffix = '-d';
-		}else{
-			$suffix = '-n';
+			if($now > $jsonObj->sys->sunrise and $now < $jsonObj->sys->sunset){
+				$suffix = '-d';
+			}else{
+				$suffix = '-n';
+			}
+
+			//assign the data to the fluid template
+			$this->view->assign('city', $currentCity);
+			$this->view->assign('weather', $weather);
+			$this->view->assign('temperature', $temperature);
+			$this->view->assign('temperature_min', $temperature_min);
+			$this->view->assign('temperature_max', $temperature_max);
+			$this->view->assign('dayOrNight', $suffix);
+		} else {
+			$this->view->assign('error', true);
 		}
-
-		//assign the data to the fluid template
-		$this->view->assign('city', $currentCity);
-		$this->view->assign('weather', $weather);
-		$this->view->assign('temperature', $temperature);
-		$this->view->assign('temperature_min', $temperature_min);
-		$this->view->assign('temperature_max', $temperature_max);
-		$this->view->assign('dayOrNight', $suffix);
 	}
 }

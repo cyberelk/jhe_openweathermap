@@ -1,11 +1,18 @@
 <f:layout name="Default" />
 <f:section name="main">
 	<p style="margin: 0;padding: 0;text-align: right;^margin-bottom: 6px;">
-		<span style="">Ihr Wetter in {city}: </span>
-		<f:for each="{weather}" as="weathercondition">
-			<!--<f:translate key="{weathercondition.id}"></f:translate>&nbsp;<img src="http://openweathermap.org/img/w/{weathercondition.icon}.png" alt="{f:translate(key:'{weathercondition.id}')}" title="{f:translate(key:'{weathercondition.id}')}" style="padding: 0;margin: 0; height: 25px; border: 1px solid green;" />-->
-			<i class="owf owf-{weathercondition.id}{dayOrNight}" title="{f:translate(key:'{weathercondition.id}')}"></i>
-		</f:for>
-		<span style="">Aktuell {temperature}&deg;C</span>&nbsp;<span style=""><small>({temperature_min}-{temperature_max}&deg;C)</small></span>
+		<f:if condition="{error}">
+			<f:then>
+
+			</f:then>
+			<f:else>
+				<span style="">Ihr Wetter in {city}: </span>
+				<f:for each="{weather}" as="weathercondition">
+					<!--<f:translate key="{weathercondition.id}"></f:translate>&nbsp;<img src="http://openweathermap.org/img/w/{weathercondition.icon}.png" alt="{f:translate(key:'{weathercondition.id}')}" title="{f:translate(key:'{weathercondition.id}')}" style="padding: 0;margin: 0; height: 25px; border: 1px solid green;" />-->
+					<i class="owf owf-{weathercondition.id}{dayOrNight}" title="{f:translate(key:'{weathercondition.id}')}"></i>
+				</f:for>
+				<span style="">Aktuell {temperature}&deg;C</span>&nbsp;<span style=""><small>({temperature_min}-{temperature_max}&deg;C)</small></span>
+			</f:else>
+		</f:if>
 	</p>
 </f:section>
