@@ -1,3 +1,12 @@
+2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.0
+
+    * Changed the way of requesting data to AJAX
+    * Implemented an error mail sending to technik@teapoint.info if the api
+      request fails
+    * Put all the inline css to one single file
+    * First draft to be sent to live scope for admin testing
+    * Set state of extension to beta
+
 2016-12-08 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.3
 
     * Send data to the fluid template only if the response from

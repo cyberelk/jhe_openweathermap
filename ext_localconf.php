@@ -17,4 +17,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
+$TYPO3_CONF_VARS['FE']['eID_include']['openweathermap'] = 'EXT:jhe_openweathermap/Classes/Ajax/SendRequest.php';
+
 ?>

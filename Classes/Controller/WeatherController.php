@@ -36,8 +36,9 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 
 	public function showAction() {
 
-		//include css file for owfont
-		$this->response->addAdditionalHeaderData('<link rel="stylesheet" type="text/css" href="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Css/owfont-regular.css" />');
+		$this->addCssClass();
+		$this->addJqueryLibrary();
+		$this->addJsFile();
 
 		//retrive data from ts settings
 		$openweathermapApiKey = $this->settings['openweathermapApiKey'];
@@ -58,37 +59,45 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 			$currentCity = $this->settings['defaultCity'];
 		}
 
-		//assemble the openWeatherMap API link
-		$request = $openWeatherMapApiUrl . '?zip=' . $currentZip . ',' . $openWeatherMapApiCountry . '&APPID=' . $openweathermapApiKey . '&lang=' . $openWeatherMapApiLang . '&units=' . $openWeatherMapApiUnits;
+		$jsonArr = array(
+			'apikey' => $openweathermapApiKey,
+			'apiurl' => $openWeatherMapApiUrl,
+			'apicountry' => $openWeatherMapApiCountry,
+			'apilang' => $openWeatherMapApiLang,
+			'apiunits' => $openWeatherMapApiUnits,
+			'currentzip' => $currentZip,
+			'currentcity' => $currentCity
+		);
+		$this->view->assign('weatherDataArr', base64_encode(serialize($jsonArr)));
+	}
 
-		//retrieve the actual weather data from openWeatherMap API and decode the jason data
-		$response = file_get_contents($request);
-		$jsonObj = json_decode($response);
+	public function addCssClass(){
+		$this->response->addAdditionalHeaderData('
+			<link rel="stylesheet" type="text/css" href="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Css/owfont-regular.css" />
+			<link rel="stylesheet" type="text/css" href="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Css/styles.css?' . time() . '" type="text/css" media="screen" />
+		');
+	}
 
-		if($jsonObj){
-			//compile the openWeatherMap data for use in the fluid template
-			$weather = $jsonObj->weather; //array of possible data
-			$temperature = round($jsonObj->main->temp);
-			$temperature_min = $jsonObj->main->temp_min;
-			$temperature_max = $jsonObj->main->temp_max;
-
-			$now = date('U'); //get current time
-
-			if($now > $jsonObj->sys->sunrise and $now < $jsonObj->sys->sunset){
-				$suffix = '-d';
-			}else{
-				$suffix = '-n';
-			}
-
-			//assign the data to the fluid template
-			$this->view->assign('city', $currentCity);
-			$this->view->assign('weather', $weather);
-			$this->view->assign('temperature', $temperature);
-			$this->view->assign('temperature_min', $temperature_min);
-			$this->view->assign('temperature_max', $temperature_max);
-			$this->view->assign('dayOrNight', $suffix);
-		} else {
-			$this->view->assign('error', true);
+	public function addJqueryLibrary(){
+		// checks if t3jquery is loaded
+		if (t3lib_extMgm::isLoaded('t3jquery')) {
+			require_once(t3lib_extMgm::extPath('t3jquery').'class.tx_t3jquery.php');
 		}
+		// if t3jquery is loaded and the custom Library had been created
+		if (T3JQUERY === true) {
+			tx_t3jquery::addJqJS();
+		} else {
+			//if none of the previous is true, you need to include your own library
+			//just as an example in this way
+			$this->response->addAdditionalHeaderData('
+				<script language="JavaScript" src="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/JavaScript/jquery-1.11.0.min.js"></script>
+			');
+		}
+	}
+
+	public function addJsFile(){
+		$this->response->addAdditionalHeaderData('
+			<script language="JavaScript" src="' . t3lib_extMgm::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/JavaScript/jhe_openweathermap.js?' . time() . '"></script>
+		');
 	}
 }
