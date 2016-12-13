@@ -1,3 +1,9 @@
+2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.1
+
+    * Changed the request to the openweathermap api according to request
+      errors and the owm support
+    * Code clean-up
+
 2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.0
 
     * Changed the way of requesting data to AJAX

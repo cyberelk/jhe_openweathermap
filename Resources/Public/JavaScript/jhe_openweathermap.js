@@ -167,10 +167,6 @@ var language = {
 	}
 }
 
-
-
-
-
 $(document).ready(function(){
 
 	$(window).load(function(e){
@@ -201,10 +197,7 @@ $(document).ready(function(){
 				}
 				$('#teaser').append(html);
 			},
-			error: function(error) {
-				console.log(error);
-			}
+			error: function(error) {}
 		});
 	});
-
 });

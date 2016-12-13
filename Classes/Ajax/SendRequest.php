@@ -8,8 +8,6 @@ Class SendRequest extends tslib_pibase {
 
 		$weatherDataArr = unserialize(base64_decode(t3lib_div::_POST('data')));
 
-//var_dump($weatherDataArr);
-
 		$apikey = $weatherDataArr['apikey'];
 		$apiurl = $weatherDataArr['apiurl'];
 		$apicountry = $weatherDataArr['apicountry'];
@@ -21,14 +19,11 @@ Class SendRequest extends tslib_pibase {
 		$returnData = array();
 
 		//assemble the openWeatherMap API link
-		//$request = $apiurl . '?zip=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey . '&lang=' . $apilang . '&units=' . $apiunits;
-		$request = $apiurl . '?zip=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey;
-//var_dump($request);
+		$request = $apiurl . 'q=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey;
+
 		//retrieve the actual weather data from openWeatherMap API and decode the jason data
 		$response = file_get_contents($request);
 		$jsonObj = json_decode($response);
-
-//var_dump($jsonObj);
 
 		if($jsonObj->weather && $jsonObj->main && $jsonObj->sys){
 			//compile the openWeatherMap data for use in the fluid template

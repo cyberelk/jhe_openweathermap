@@ -101,3 +101,4 @@ class Tx_JheOpenweathermap_Controller_WeatherController extends Tx_Extbase_MVC_C
 		');
 	}
 }
+?>

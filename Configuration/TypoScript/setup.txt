@@ -21,28 +21,3 @@ plugin.tx_jheopenweathermap {
 		defaultCity = {$plugin.tx_jheopenweathermap.settings.defaultCity}
 	}
 }
-
-plugin.tx_jheopenweathermap._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-jhe-openweathermap table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-jhe-openweathermap table th {
-		font-weight:bold;
-	}
-
-	.tx-jhe-openweathermap table td {
-		vertical-align:top;
-	}
-)

@@ -10,5 +10,4 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 );
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Open Weather Map');
-
 ?>
