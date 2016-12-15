@@ -19,7 +19,7 @@ Class SendRequest extends tslib_pibase {
 		$returnData = array();
 
 		//assemble the openWeatherMap API link
-		$request = $apiurl . 'q=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey;
+		$request = $apiurl . '?q=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey;
 
 		//retrieve the actual weather data from openWeatherMap API and decode the jason data
 		$response = file_get_contents($request);

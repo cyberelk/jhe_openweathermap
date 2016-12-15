@@ -1,3 +1,7 @@
+2016-12-15 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.2
+
+    * Corrected a typo in the request link
+
 2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.1
 
     * Changed the request to the openweathermap api according to request
