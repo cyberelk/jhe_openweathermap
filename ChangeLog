@@ -1,3 +1,9 @@
+2017-02-14 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.3
+
+    * Transferred the error log mail functionality to a single method and
+      disabled the call for this function for not receiving any data via
+      mail
+
 2016-12-15 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.2
 
     * Corrected a typo in the request link
