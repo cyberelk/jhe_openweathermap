@@ -52,17 +52,21 @@ Class SendRequest extends tslib_pibase {
 		} else {
 			$returnData['error'] = true;
 
-			$errorMailMessage = '
+			//$this->sendLogDataToAdmin($request, $response, $jsonObj);
+		}
+
+		echo json_encode($returnData);
+		exit(0);
+	}
+
+	public function sendLogDataToAdmin($request, $response, $jsonObj){
+		$errorMailMessage = '
 			Request:' . $request . '
 			Response: ' . $response . '
 			Fehlermessage: '. $jsonObj->message . '
 			Fehlercode: ' . $jsonObj->cod;
 
-			mail('technik@teampoint.info', 'Fehlermeldung api.openweathermap.org', $errorMailMessage);
-		}
-
-		echo json_encode($returnData);
-		exit(0);
+		mail('technik@teampoint.info', 'Fehlermeldung api.openweathermap.org', $errorMailMessage);
 	}
 
 	public function convertKelvinToCelsius($temperature){
