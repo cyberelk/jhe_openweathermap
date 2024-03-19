@@ -1,0 +1,10 @@
+.jhe-openweathermap {
+	margin: 0 0 2em 0;
+	padding: 0;
+	text-align: right;
+	line-height: 1em;
+	font-size: 0.8em;
+}
+.jhe-openweathermap .icon {
+	color: #555555;
+}

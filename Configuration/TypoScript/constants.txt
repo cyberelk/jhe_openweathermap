@@ -1,0 +1,31 @@
+plugin.tx_jheopenweathermap {
+	view {
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jhe_openweathermap/Resources/Private/Templates/
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jhe_openweathermap/Resources/Private/Partials/
+		# cat=plugin.tx_jheopenweathermap/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jhe_openweathermap/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jheopenweathermap//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_jheopenweathermap/settings/001; type=string; label=OpenWeatherMap API Key
+		openweathermapApiKey = c81fecb0e191e18ad078746ccaba3cc9
+		# cat=plugin.tx_jheopenweathermap/settings/002; type=string; label=OpenWatherMap API URL
+		openWeatherMapApiUrl = http://api.openweathermap.org/data/2.5/weather
+		# cat=plugin.tx_jheopenweathermap/settings/003; type=string; label=OpenWatherMap API Country
+		openWeatherMapApiCountry = de
+		# cat=plugin.tx_jheopenweathermap/settings/004; type=string; label=OpenWeatherMap API Language
+		openWeatherMapApiLang = de
+		# cat=plugin.tx_jheopenweathermap/settings/005; type=string; label=OpenWeatherMap API Units
+		openWeatherMapApiUnits = metric
+		# cat=plugin.tx_jheopenweathermap/settings/006; type=string; label=Default zip
+		defaultZip = 53225
+		# cat=plugin.tx_jheopenweathermap/settings/007; type=string; label=Default city
+		defaultCity = Bonn
+	}
+
+}

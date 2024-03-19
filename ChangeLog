@@ -1,0 +1,64 @@
+2023-04-19 Jari-Hermann Ernst, M.A.  <jhernst@network-publishing.de> V1.1.0
+
+  * Change the fluid template to only show the openweathermap api data when
+    a user is logged in
+  * If no data ist available no AJAX request is fired and the html container
+    for the view is deleted
+
+2017-09-01 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V1.0.1
+
+    * Change the recipient mail address to the standard otrs one
+
+2017-08-10 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V1.0.0
+
+    * TYPO3 6.2 compatibility changes
+
+2017-02-14 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.3
+
+    * Transferred the error log mail functionality to a single method and
+      disabled the call for this function for not receiving any data via
+      mail
+
+2016-12-15 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.2
+
+    * Corrected a typo in the request link
+
+2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.1
+
+    * Changed the request to the openweathermap api according to request
+      errors and the owm support
+    * Code clean-up
+
+2016-12-09 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.1.0
+
+    * Changed the way of requesting data to AJAX
+    * Implemented an error mail sending to technik@teapoint.info if the api
+      request fails
+    * Put all the inline css to one single file
+    * First draft to be sent to live scope for admin testing
+    * Set state of extension to beta
+
+2016-12-08 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.3
+
+    * Send data to the fluid template only if the response from
+      api.openweathermap.org is valid
+    * Added the TS settings to constants.txt (ToDo: Should be removed before
+      publishing!!!)
+
+2016-11-22 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.2
+
+    * Changed the order of the output in the template
+    * Made all the dynamical data for teh extension configurable via
+      typoscript constants
+    * Code cleanup
+
+2016-11-21 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.1
+
+    * Implemented owfont (http://websygen.github.io/owfont/) for displaying
+      the weather conditions without graphics
+    * Added a gitignore file
+    * Added this ChangeLog
+
+2016-11-10 Jari-Hermann Ernst, M.A.  <jari-hermann.ernst@bad-gmbh.de> V0.0.0
+
+    * Initial state (proof of concept)

@@ -1,0 +1,30 @@
+{
+  "name": "bad_teampoint/jhe_openweathermap",
+  "type": "typo3-cms-extension",
+  "description": "Displays the local weather forecast for the logged in user",
+  "authors": [
+    {
+      "name": "Jari-Herman Ernst",
+      "email": "jhernst@network-publishing.de",
+      "role": "Developer",
+      "homepage": "https://www.network-publishing.de"
+    }
+  ],
+  "version": "1.1.0",
+  "require": {
+    "typo3/cms-core": "~6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "BadTeampoint\\JheOpenweathermap\\": "Classes/"
+    }
+  },
+  "replace": {
+    "bad_teampoint/jhe_openweathermap": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "jhe_openweathermap"
+    }
+  }
+}

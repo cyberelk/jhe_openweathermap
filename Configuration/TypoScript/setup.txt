@@ -1,0 +1,28 @@
+plugin.tx_jheopenweathermap {
+	view {
+		templateRootPath = {$plugin.tx_jheopenweathermap.view.templateRootPath}
+		partialRootPath = {$plugin.tx_jheopenweathermap.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_jheopenweathermap.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_jheopenweathermap.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings {
+		openweathermapApiKey = {$plugin.tx_jheopenweathermap.settings.openweathermapApiKey}
+		openWeatherMapApiUrl = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiUrl}
+		openWeatherMapApiCountry = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiCountry}
+		openWeatherMapApiLang = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiLang}
+		openWeatherMapApiUnits = {$plugin.tx_jheopenweathermap.settings.openWeatherMapApiUnits}
+		defaultZip = {$plugin.tx_jheopenweathermap.settings.defaultZip}
+		defaultCity = {$plugin.tx_jheopenweathermap.settings.defaultCity}
+	}
+}
+
+
+page.includeJSFooter {
+	jhe_openweathermap = typo3conf/ext/jhe_openweathermap/Resources/Public/JavaScript/jhe_openweathermap.js
+}
