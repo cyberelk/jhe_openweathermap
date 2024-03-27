@@ -1,19 +1,18 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
+defined('TYPO3') or die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	$_EXTKEY,
-	'Pi1',
-	array(
-		'Weather' => 'show',
-	),
-	// non-cacheable actions
-	array(
-		'Weather' => 'show',
-	)
-);
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use Cyberelk\JheOpenweathermap\Controller\WeatherController;
 
-$TYPO3_CONF_VARS['FE']['eID_include']['openweathermap'] = 'EXT:jhe_openweathermap/Classes/Ajax/SendRequest.php';
-?>
+(function(){
+
+	ExtensionUtility::configurePlugin(
+		'JheOpenweathermap',
+		'Weather',
+		[WeatherController::class => 'show'],
+		[WeatherController::class => 'show']
+	);
+
+	$TYPO3_CONF_VARS['FE']['eID_include']['openweathermap'] = 'EXT:jhe_openweathermap/Classes/Ajax/SendRequest.php';
+})();
