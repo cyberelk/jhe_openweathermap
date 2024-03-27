@@ -22,7 +22,10 @@ plugin.tx_jheopenweathermap {
 	}
 }
 
-
+page.includeCSS {
+	jhe_openweathermap_1 = EXT:jhe_openweathermap/Resources/Public/Css/owfont-regular.css
+	jhe_openweathermap_2 = EXT:jhe_openweathermap/Resources/Public/Css/styles.css
+}
 page.includeJSFooter {
-	jhe_openweathermap = typo3conf/ext/jhe_openweathermap/Resources/Public/JavaScript/jhe_openweathermap.js
+	jhe_openweathermap = EXT:jhe_openweathermap/Resources/Public/JavaScript/jhe_openweathermap.js
 }
