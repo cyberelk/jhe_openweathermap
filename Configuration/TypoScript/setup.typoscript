@@ -29,3 +29,31 @@ page.includeCSS {
 page.includeJSFooter {
 	jhe_openweathermap = EXT:jhe_openweathermap/Resources/Public/JavaScript/jhe_openweathermap.js
 }
+
+ajaxResponse = PAGE
+ajaxResponse {
+    typeNum = 19710613
+
+    config {
+        disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		xhtml_cleaning = 0
+		debug = 0
+		no_cache = 1
+		admPanel = 0
+    }
+
+	#10 = TEXT
+	#10.value = BEISPIELTEXT
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName= JheOpenweathermap
+		pluginName = WeatherPlugin
+		vendorName = Cyberelk
+		controller = Weather
+		action = sendRequest
+	}
+    
+}

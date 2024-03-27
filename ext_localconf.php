@@ -1,18 +1,17 @@
 <?php
 defined('TYPO3') or die();
 
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use Cyberelk\JheOpenweathermap\Controller\WeatherController;
+call_user_func(function(){
 
-(function(){
-
-	ExtensionUtility::configurePlugin(
+	TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 		'JheOpenweathermap',
-		'Weather',
-		[WeatherController::class => 'show'],
-		[WeatherController::class => 'show']
+		'WeatherPlugin',
+		[
+			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show, sendRequest'
+		],
+		[
+			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show, sendRequest'
+		]
 	);
 
-	$TYPO3_CONF_VARS['FE']['eID_include']['openweathermap'] = 'EXT:jhe_openweathermap/Classes/Ajax/SendRequest.php';
-})();
+});

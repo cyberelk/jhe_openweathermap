@@ -7,7 +7,7 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
     ExtensionUtility::registerPlugin(
         'JheOpenweathermap',
-        'Weather',
+        'WeatherPlugin',
         'Weather Forecast'
     );
 
