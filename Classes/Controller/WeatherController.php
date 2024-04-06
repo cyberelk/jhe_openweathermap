@@ -68,5 +68,5 @@ class WeatherController extends ActionController {
 		$calculatedTemperature = round(($temperature - 273.15));
 		return $calculatedTemperature;
 	}
-	
+
 }
