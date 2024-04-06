@@ -7,10 +7,10 @@ call_user_func(function(){
 		'JheOpenweathermap',
 		'WeatherPlugin',
 		[
-			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show, sendRequest'
+			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show'
 		],
 		[
-			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show, sendRequest'
+			Cyberelk\JheOpenweathermap\Controller\WeatherController::class => 'show'
 		]
 	);
 
