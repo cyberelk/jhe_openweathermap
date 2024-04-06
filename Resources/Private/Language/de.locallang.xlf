@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:jhe_openweathermap/Resources/Private/Language/locallang.xlf" date="2024-04-06T10:52:44Z" product-name="jhe_openweathermap">
+		<header/>
+		<body>
+			<trans-unit id="200" resname="200"  approved="yes">
+				<source>thunderstorm with light rain</source>
+				<target>Gewitter mit leichtem Regen</target>
+			</trans-unit>
+			<trans-unit id="201" resname="201"  approved="yes">
+				<source>thunderstorm with rain</source>
+				<target>Gewitter mit Regen</target>
+			</trans-unit>
+			<trans-unit id="202" resname="202"  approved="yes">
+				<source>thunderstorm with heavy rain</source>
+				<target>Gewitter mit starken Regen</target>
+			</trans-unit>
+			<trans-unit id="210" resname="210"  approved="yes">
+				<source>light thunderstorm</source>
+				<target>Leichtes Gewitter</target>
+			</trans-unit>
+			<trans-unit id="211" resname="211"  approved="yes">
+				<source>thunderstorm</source>
+				<target>Gewitter</target>
+			</trans-unit>
+			<trans-unit id="212" resname="212"  approved="yes">
+				<source>heavy thunderstorm</source>
+				<target>Schweres Gewitter</target>
+			</trans-unit>
+			<trans-unit id="221" resname="221"  approved="yes">
+				<source>ragged thunderstorm</source>
+				<target>Raues Gewitter</target>
+			</trans-unit>
+			<trans-unit id="230" resname="230"  approved="yes">
+				<source>thunderstorm with light drizzle</source>
+				<target>Gewitter mit leichtem Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="231" resname="231"  approved="yes">
+				<source>thunderstorm with drizzle</source>
+				<target>Gewitter mit Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="232" resname="232"  approved="yes">
+				<source>thunderstorm with heavy drizzle</source>
+				<target>Gewitter mit starkem Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="300" resname="300"  approved="yes">
+				<source>light intensity drizzle</source>
+				<target>Leichter Niesel</target>
+			</trans-unit>
+			<trans-unit id="301" resname="301"  approved="yes">
+				<source>drizzle</source>
+				<target>Niesel</target>
+			</trans-unit>
+			<trans-unit id="302" resname="302"  approved="yes">
+				<source>heavy intensity drizzle</source>
+				<target>Starker Niesel</target>
+			</trans-unit>
+			<trans-unit id="310" resname="310"  approved="yes">
+				<source>light intensity drizzle rain</source>
+				<target>Leichter Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="311" resname="311"  approved="yes">
+				<source>drizzle rain</source>
+				<target>Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="312" resname="312"  approved="yes">
+				<source>heavy intensity drizzle rain</source>
+				<target>Starker Nieselregen</target>
+			</trans-unit>
+			<trans-unit id="313" resname="313"  approved="yes">
+				<source>shower rain and drizzle</source>
+				<target>Regenschauer und Niesel</target>
+			</trans-unit>
+			<trans-unit id="314" resname="314"  approved="yes">
+				<source>heavy shower rain and drizzle</source>
+				<target>Sarker Regenschauer und Niesel</target>
+			</trans-unit>
+			<trans-unit id="321" resname="321"  approved="yes">
+				<source>shower drizzle</source>
+				<target>Nieselschauer</target>
+			</trans-unit>
+			<trans-unit id="500" resname="500"  approved="yes">
+				<source>light rain</source>
+				<target>Leichter Regen</target>
+			</trans-unit>
+			<trans-unit id="501" resname="501"  approved="yes">
+				<source>moderate rain</source>
+				<target>Moderater Regen</target>
+			</trans-unit>
+			<trans-unit id="502" resname="502"  approved="yes">
+				<source>heavy intensity rain</source>
+				<target>Starker regen</target>
+			</trans-unit>
+			<trans-unit id="503" resname="503"  approved="yes">
+				<source>very heavy rain</source>
+				<target>Sehr starker Regen</target>
+			</trans-unit>
+			<trans-unit id="504" resname="504"  approved="yes">
+				<source>extreme rain</source>
+				<target>Extermer Regen</target>
+			</trans-unit>
+			<trans-unit id="511" resname="511"  approved="yes">
+				<source>freezing rain</source>
+				<target>Gefrierender Regen</target>
+			</trans-unit>
+			<trans-unit id="520" resname="520"  approved="yes">
+				<source>light intensity shower rain</source>
+				<target>Leichter Regenschauer</target>
+			</trans-unit>
+			<trans-unit id="521" resname="521"  approved="yes">
+				<source>shower rain</source>
+				<target>Regenschauer</target>
+			</trans-unit>
+			<trans-unit id="522" resname="522"  approved="yes">
+				<source>heavy intensity shower rain</source>
+				<target>Starker Regenschauer</target>
+			</trans-unit>
+			<trans-unit id="531" resname="531"  approved="yes">
+				<source>ragged shower rain</source>
+				<target>Rauer Regenschauer</target>
+			</trans-unit>
+			<trans-unit id="600" resname="600"  approved="yes">
+				<source>light snow</source>
+				<target>Leichter Schneefall</target>
+			</trans-unit>
+			<trans-unit id="601" resname="601"  approved="yes">
+				<source>snow</source>
+				<target>Schneefall</target>
+			</trans-unit>
+			<trans-unit id="602" resname="602"  approved="yes">
+				<source>heavy snow</source>
+				<target>Dichter Schneefall</target>
+			</trans-unit>
+			<trans-unit id="611" resname="611"  approved="yes">
+				<source>sleet</source>
+				<target>Graupel</target>
+			</trans-unit>
+			<trans-unit id="612" resname="612"  approved="yes">
+				<source>shower sleet</source>
+				<target>Schneeregen</target>
+			</trans-unit>
+			<trans-unit id="615" resname="615"  approved="yes">
+				<source>light rain and snow</source>
+				<target>Leichter Regen und Schnee</target>
+			</trans-unit>
+			<trans-unit id="616" resname="616"  approved="yes">
+				<source>rain and snow</source>
+				<target>Regen und Schnee</target>
+			</trans-unit>
+			<trans-unit id="620" resname="620"  approved="yes">
+				<source>light shower snow</source>
+				<target>Leichter Schneschauer</target>
+			</trans-unit>
+			<trans-unit id="621" resname="621"  approved="yes">
+				<source>shower snow</source>
+				<target>Schneescauer</target>
+			</trans-unit>
+			<trans-unit id="622" resname="622"  approved="yes">
+				<source>heavy shower snow</source>
+				<target>Dichte Schneeschauer</target>
+			</trans-unit>
+			<trans-unit id="701" resname="701"  approved="yes">
+				<source>mist</source>
+				<target>Nebel</target>
+			</trans-unit>
+			<trans-unit id="711" resname="711"  approved="yes">
+				<source>smoke</source>
+				<target>Rauch</target>
+			</trans-unit>
+			<trans-unit id="721" resname="721"  approved="yes">
+				<source>haze</source>
+				<target>Dunst</target>
+			</trans-unit>
+			<trans-unit id="731" resname="731"  approved="yes">
+				<source>sand, dust whirls</source>
+				<target>Sand, Staubwirbel</target>
+			</trans-unit>
+			<trans-unit id="741" resname="741"  approved="yes">
+				<source>fog</source>
+				<target>Nebel</target>
+			</trans-unit>
+			<trans-unit id="751" resname="751"  approved="yes">
+				<source>sand</source>
+				<target>Sand</target>
+			</trans-unit>
+			<trans-unit id="761" resname="761"  approved="yes">
+				<source>dust</source>
+				<target>Staub</target>
+			</trans-unit>
+			<trans-unit id="762" resname="762"  approved="yes">
+				<source>volcanic ash</source>
+				<target>Vulkanische Asche</target>
+			</trans-unit>
+			<trans-unit id="771" resname="771"  approved="yes">
+				<source>squalls</source>
+				<target>Böen</target>
+			</trans-unit>
+			<trans-unit id="781" resname="781"  approved="yes">
+				<source>tornado</source>
+				<target>Tornado</target>
+			</trans-unit>
+			<trans-unit id="800" resname="800"  approved="yes">
+				<source>clear sky</source>
+				<target>Klarer Himmel</target>
+			</trans-unit>
+			<trans-unit id="801" resname="801"  approved="yes">
+				<source>few clouds</source>
+				<target>Kaum Wolken</target>
+			</trans-unit>
+			<trans-unit id="802" resname="802"  approved="yes">
+				<source>scattered clouds</source>
+				<target>Vereinzelte Wolken</target>
+			</trans-unit>
+			<trans-unit id="803" resname="803"  approved="yes">
+				<source>broken clouds</source>
+				<target>Aufgerissene Bewölkung</target>
+			</trans-unit>
+			<trans-unit id="804" resname="804"  approved="yes">
+				<source>overcast clouds</source>
+				<target>Leichte Bewölkung</target>
+			</trans-unit>
+			<trans-unit id="900" resname="900"  approved="yes">
+				<source>tornado</source>
+				<target>Tornado</target>
+			</trans-unit>
+			<trans-unit id="901" resname="901"  approved="yes">
+				<source>tropical storm</source>
+				<target>Tropischer Sturm</target>
+			</trans-unit>
+			<trans-unit id="902" resname="902"  approved="yes">
+				<source>hurricane</source>
+				<target>Hurrikan</target>
+			</trans-unit>
+			<trans-unit id="903" resname="903"  approved="yes">
+				<source>cold</source>
+				<target>Kälte</target>
+			</trans-unit>
+			<trans-unit id="904" resname="904"  approved="yes">
+				<source>hot</source>
+				<target>Hitze</target>
+			</trans-unit>
+			<trans-unit id="905" resname="905"  approved="yes">
+				<source>windy</source>
+				<target>Windig</target>
+			</trans-unit>
+			<trans-unit id="906" resname="906"  approved="yes">
+				<source>hail</source>
+				<target>Hagel</target>
+			</trans-unit>
+			<trans-unit id="951" resname="951"  approved="yes">
+				<source>calm</source>
+				<target>Windstill</target>
+			</trans-unit>
+			<trans-unit id="952" resname="952"  approved="yes">
+				<source>light breeze</source>
+				<target>Leichte Brise</target>
+			</trans-unit>
+			<trans-unit id="953" resname="953"  approved="yes">
+				<source>gentle breeze</source>
+				<target>Sanfte Brise</target>
+			</trans-unit>
+			<trans-unit id="954" resname="954"  approved="yes">
+				<source>moderate breeze</source>
+				<target>Mäßige Brise</target>
+			</trans-unit>
+			<trans-unit id="955" resname="955"  approved="yes">
+				<source>fresh breeze</source>
+				<target>Frische Brise</target>
+			</trans-unit>
+			<trans-unit id="956" resname="956"  approved="yes">
+				<source>strong breeze</source>
+				<target>Kräftige Brise</target>
+			</trans-unit>
+			<trans-unit id="957" resname="957"  approved="yes">
+				<source>high wind, near gale</source>
+				<target>Starker Wind, fast Sturm</target>
+			</trans-unit>
+			<trans-unit id="958" resname="958"  approved="yes">
+				<source>gale</source>
+				<target>Sturm</target>
+			</trans-unit>
+			<trans-unit id="959" resname="959"  approved="yes">
+				<source>severe gale</source>
+				<target>Sarker Sturm</target>
+			</trans-unit>
+			<trans-unit id="960" resname="960"  approved="yes">
+				<source>storm</source>
+				<target>Orkan</target>
+			</trans-unit>
+			<trans-unit id="961" resname="961"  approved="yes">
+				<source>violent storm</source>
+				<target>Starker Surm</target>
+			</trans-unit>
+			<trans-unit id="962" resname="962"  approved="yes">
+				<source>hurricane</source>
+				<target>Hurrikan</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
