@@ -4,14 +4,18 @@
 <p class="jhe-openweathermap">
 	<f:if condition="{weatherData.error} === false">
 		<f:then>
-			<span>Ihr Wetter in {weatherData.city}: </span>
+			<span>
+				<f:translate key="show.label.beforecity"/>{weatherData.city}: 
+			</span>
 			<f:for each="{weatherData.weather}" as="icon" iteration="i">
 				<i class="owf owf-{icon.id}{weatherData.dayOrNight} icon" title="{f:translate(key:'{icon.id}')}"></i>
 			</f:for>
-			<span>Aktuell {weatherData.temperature}&deg;C</span>&nbsp;<span><small>({weatherData.temperature_min} - {weatherData.temperature_max}&deg;C)</small></span>
+			<span>
+				<f:translate key="show.label.currently" />{weatherData.temperature}&deg;C</span>&nbsp;<span><small>({weatherData.temperature_min} - {weatherData.temperature_max}&deg;C)</small>
+			</span>
 		</f:then>
 		<f:else>
-			Leider besteht aktuell ein Problem mit der API von OpenWeathermap und es können keine Daten angezeigt werden.
+			<f:translate key="api.error" />
 		</f:else>
 	</f:if>
 </p>

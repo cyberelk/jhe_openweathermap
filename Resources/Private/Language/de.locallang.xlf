@@ -295,6 +295,16 @@
 				<source>hurricane</source>
 				<target>Hurrikan</target>
 			</trans-unit>
+
+			<trans-unit id="show.label.beforecity" resname="show.label.beforecity">
+				<target>Ihr Wetter in </target>
+			</trans-unit>
+			<trans-unit id="show.label.currently" resname="show.label.currently">
+				<target>Aktuell </target>
+			</trans-unit>
+			<trans-unit id="api.error" resname="api.error">
+				<target>Leider besteht aktuell ein Problem mit der API von OpenWeathermap und es können keine Daten angezeigt werden.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -222,6 +222,16 @@
 			<trans-unit id="962" resname="962" >
 				<source>hurricane</source>
 			</trans-unit>
+
+			<trans-unit id="show.label.beforecity" resname="">
+				<source>Your weather in </source>
+			</trans-unit>
+			<trans-unit id="show.label.currently" resname="">
+				<source>Currently </source>
+			</trans-unit>
+			<trans-unit id="api.error" resname="">
+				<source>Unfortunately, there is currently a problem with the OpenWeathermap API and no data can be displayed.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
