@@ -232,6 +232,9 @@
 			<trans-unit id="api.error" resname="">
 				<source>Unfortunately, there is currently a problem with the OpenWeathermap API and no data can be displayed.</source>
 			</trans-unit>
+			<trans-unit id="data.error" resname="">
+				<source>There is a problem with the configuration of the extension. Please check the settings.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
