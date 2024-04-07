@@ -3,6 +3,18 @@
 	<file source-language="en" datatype="plaintext" original="EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf" date="2024-04-07T14:11:44Z" product-name="jhe_openweathermap">
 		<header/>
 		<body>
+            <trans-unit id="show.ff.plugintype" resname="">
+                <source>Plugin type</source>
+            </trans-unit>
+            <trans-unit id="show.ff.plugintype.typoscript" resname="">
+                <source>TypoScript settings</source>
+            </trans-unit>
+            <trans-unit id="show.ff.plugintype.fe_user" resname="">
+                <source>Data from logged-in frontend user</source>
+            </trans-unit>
+            <trans-unit id="show.ff.plugintype.plugin" resname="">
+                <source>Plugin settings</source>
+            </trans-unit>
             <trans-unit id="show.ff.weather.title" resname="">
                 <source>Location data</source>
             </trans-unit>

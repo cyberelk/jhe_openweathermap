@@ -8,12 +8,37 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
+					<settings.pluginType>
+						<TCEforms>
+							<label>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.plugintype</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.plugintype.typoscript</numIndex>
+										<numIndex index="1">typoscript</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.plugintype.fe_user</numIndex>
+										<numIndex index="1">fe_user</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.plugintype.plugin</numIndex>
+										<numIndex index="1">plugin</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.pluginType>
 					<settings.country>
 						<TCEforms>
 							<label>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.country</label>
 							<config>
 								<type>input</type>
 							</config>
+							<displayCond>FIELD:settings.pluginType:=:plugin</displayCond>
 						</TCEforms>
 					</settings.country>
 					<settings.city>
@@ -22,6 +47,7 @@
 							<config>
 								<type>input</type>
 							</config>
+							<displayCond>FIELD:settings.pluginType:=:plugin</displayCond>
 						</TCEforms>
 					</settings.city>
 					<settings.zip>
@@ -30,6 +56,7 @@
 							<config>
 								<type>input</type>
 							</config>
+							<displayCond>FIELD:settings.pluginType:=:plugin</displayCond>
 						</TCEforms>
 					</settings.zip>
 				</el>
