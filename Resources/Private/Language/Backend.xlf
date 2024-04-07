@@ -3,30 +3,30 @@
 	<file source-language="en" datatype="plaintext" original="EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf" date="2024-04-07T14:11:44Z" product-name="jhe_openweathermap">
 		<header/>
 		<body>
-            <trans-unit id="show.ff.plugintype" resname="">
-                <source>Plugin type</source>
-            </trans-unit>
-            <trans-unit id="show.ff.plugintype.typoscript" resname="">
-                <source>TypoScript settings</source>
-            </trans-unit>
-            <trans-unit id="show.ff.plugintype.fe_user" resname="">
-                <source>Data from logged-in frontend user</source>
-            </trans-unit>
-            <trans-unit id="show.ff.plugintype.plugin" resname="">
-                <source>Plugin settings</source>
-            </trans-unit>
-            <trans-unit id="show.ff.weather.title" resname="">
-                <source>Location data</source>
-            </trans-unit>
-            <trans-unit id="show.ff.country" resname="">
+			<trans-unit id="show.ff.plugintype" resname="">
+				<source>Plugin type</source>
+			</trans-unit>
+			<trans-unit id="show.ff.plugintype.typoscript" resname="">
+				<source>TypoScript settings</source>
+			</trans-unit>
+			<trans-unit id="show.ff.plugintype.fe_user" resname="">
+				<source>Data from logged-in frontend user</source>
+			</trans-unit>
+			<trans-unit id="show.ff.plugintype.plugin" resname="">
+				<source>Plugin settings</source>
+			</trans-unit>
+			<trans-unit id="show.ff.weather.title" resname="">
+				<source>Location data</source>
+			</trans-unit>
+			<trans-unit id="show.ff.country" resname="">
 				<source>Country</source>
 			</trans-unit>
-            <trans-unit id="show.ff.city" resname="">
+			<trans-unit id="show.ff.city" resname="">
 				<source>City</source>
 			</trans-unit>
-            <trans-unit id="show.ff.zip" resname="">
+			<trans-unit id="show.ff.zip" resname="">
 				<source>Zip code</source>
 			</trans-unit>
-        </body>
-    </file>
+		</body>
+	</file>
 </xliff>
