@@ -13,7 +13,7 @@ class WeatherController extends ActionController {
 
 	public function showAction() {
 
-		// //retrive data from ts settings
+		// retrieve standard data from ts settings
 		$apikey = $this->settings['openweathermapApiKey'];
 		$apiurl = $this->settings['openWeatherMapApiUrl'];
 		$apicountry = $this->settings['openWeatherMapApiCountry'];
@@ -21,6 +21,17 @@ class WeatherController extends ActionController {
 		$apiunits = $this->settings['openWeatherMapApiUnits'];
 		$currentzip = $this->settings['defaultZip'];
 		$currentcity = $this->settings['defaultCity'];
+
+		// override standard settings by flexform data of the plugin
+		if($this->settings['country'] != ''){
+			$apicountry = $this->settings['country'];
+		}
+		if($this->settings['city'] != ''){
+			$currentcity = $this->settings['city'];
+		}
+		if($this->settings['zip'] != ''){
+			$currentzip = $this->settings['zip'];
+		}
 
 		//assemble the openWeatherMap API link
 		$request = $apiurl . '?q=' . $currentzip . ',' . $apicountry . '&APPID=' . $apikey;

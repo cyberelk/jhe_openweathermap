@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:jhe_openweathermap/Resources/Private/Language/locallang.xlf" date="2024-04-07T14:35:44Z" product-name="jhe_openweathermap">
+		<header/>
+		<body>
+            <trans-unit id="show.ff.weather.title" resname="">
+                <target>Standortdaten</target>
+            </trans-unit>
+            <trans-unit id="show.ff.country" resname="">
+				<target>Land</target>
+			</trans-unit>
+            <trans-unit id="show.ff.city" resname="">
+				<target>Stadt</target>
+			</trans-unit>
+            <trans-unit id="show.ff.zip" resname="">
+				<target>PLZ</target>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

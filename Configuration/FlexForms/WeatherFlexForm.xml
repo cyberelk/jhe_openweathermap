@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.weather.title</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.country>
+						<TCEforms>
+							<label>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.country</label>
+							<config>
+								<type>input</type>
+							</config>
+						</TCEforms>
+					</settings.country>
+					<settings.city>
+						<TCEforms>
+							<label>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.city</label>
+							<config>
+								<type>input</type>
+							</config>
+						</TCEforms>
+					</settings.city>
+					<settings.zip>
+						<TCEforms>
+							<label>LLL:EXT:jhe_openweathermap/Resources/Private/Language/Backend.xlf:show.ff.zip</label>
+							<config>
+								<type>input</type>
+							</config>
+						</TCEforms>
+					</settings.zip>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
