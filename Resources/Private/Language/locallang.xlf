@@ -235,6 +235,9 @@
 			<trans-unit id="data.error" resname="">
 				<source>There is a problem with the configuration of the extension. Please check the settings.</source>
 			</trans-unit>
+			<trans-unit id="feuser.error" resname="">
+				<source>It looks like no user is currently logged in, so no location data can be found to get the weather forecast for.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

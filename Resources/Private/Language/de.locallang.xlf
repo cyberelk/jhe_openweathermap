@@ -308,6 +308,9 @@
 			<trans-unit id="data.error" resname="data.error">
 				<target>Es liegt ein Problem bei der Konfiguration der Extension vor. Bitte prüfen Sie die Einstellungen.</target>
 			</trans-unit>
+			<trans-unit id="feuser.error" resname="feuser.error">
+				<target>Es sieht so aus, als ob derzeit kein Benutzer angemeldet ist, so dass keine Standortdaten gefunden werden können, um die Wettervorhersage anzuzeigen.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
