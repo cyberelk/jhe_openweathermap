@@ -1,6 +1,7 @@
 <?php
 namespace Cyberelk\JheOpenweathermap\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
@@ -13,7 +14,7 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
  */
 class WeatherController extends ActionController {
 
-	public function showAction() {
+	public function showAction(): ResponseInterface {
 		// Initialize weather data array with defaults to avoid undefined index errors.
 		$weatherData = [
 			'dataError' => false,
@@ -34,6 +35,8 @@ class WeatherController extends ActionController {
 
 		// Assign the prepared or defaulted weather data to the view.
 		$this->view->assign('weatherData', $weatherData);
+
+		return $this->htmlResponse();
 	}
 
 	private function configureApiSettings(&$weatherData) {
