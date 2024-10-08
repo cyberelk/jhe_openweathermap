@@ -15,16 +15,18 @@ plugin.tx_jheopenweathermap {
 		# cat=plugin.tx_jheopenweathermap/settings/001; type=string; label=OpenWeatherMap API Key
 		openweathermapApiKey = 
 		# cat=plugin.tx_jheopenweathermap/settings/002; type=string; label=OpenWatherMap API URL
-		openWeatherMapApiUrl = http://api.openweathermap.org/data/2.5/weather
-		# cat=plugin.tx_jheopenweathermap/settings/003; type=string; label=OpenWatherMap API Country
+		openWeatherMapApiUrl = https://api.openweathermap.org/data/
+		# cat=plugin.tx_jheopenweathermap/settings/003; type=options[Version 2.5=2.5, Version 3.0=3.0]; label=OpenWatherMap API Version
+		openWeatherMapApiVersion = 2.5 
+		# cat=plugin.tx_jheopenweathermap/settings/004; type=string; label=OpenWatherMap API Country
 		openWeatherMapApiCountry = de
-		# cat=plugin.tx_jheopenweathermap/settings/004; type=string; label=OpenWeatherMap API Language
+		# cat=plugin.tx_jheopenweathermap/settings/005; type=string; label=OpenWeatherMap API Language
 		openWeatherMapApiLang = de
-		# cat=plugin.tx_jheopenweathermap/settings/005; type=string; label=OpenWeatherMap API Units
+		# cat=plugin.tx_jheopenweathermap/settings/006; type=string; label=OpenWeatherMap API Units
 		openWeatherMapApiUnits = metric
-		# cat=plugin.tx_jheopenweathermap/settings/006; type=string; label=Default zip
+		# cat=plugin.tx_jheopenweathermap/settings/007; type=string; label=Default zip
 		defaultZip = 13053
-		# cat=plugin.tx_jheopenweathermap/settings/007; type=string; label=Default city
+		# cat=plugin.tx_jheopenweathermap/settings/008; type=string; label=Default city
 		defaultCity = Berlin
 	}
 
