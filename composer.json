@@ -10,7 +10,7 @@
       "homepage": "https://www.jhernst.de"
     }
   ],
-  "version": "0.0.0",
+  "version": "v11.0.1-alpha",
   "require": {
     "typo3/cms-core": "~11.5"
   },
