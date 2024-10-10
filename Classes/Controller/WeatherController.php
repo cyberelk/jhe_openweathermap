@@ -13,7 +13,7 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
  */
 class WeatherController extends ActionController {
 
-	public function showAction() {
+	public function showAction(): \Psr\Http\Message\ResponseInterface {
 		// Initialize weather data array with defaults to avoid undefined index errors.
 		$weatherData = [
 			'dataError' => false,
@@ -34,6 +34,7 @@ class WeatherController extends ActionController {
 
 		// Assign the prepared or defaulted weather data to the view.
 		$this->view->assign('weatherData', $weatherData);
+  		return $this->htmlResponse();
 	}
 
 	private function configureApiSettings(&$weatherData) {
@@ -126,7 +127,7 @@ class WeatherController extends ActionController {
 		];
 	}
 
-	private function loadAndPrepareWeatherData(&$weatherData) {
+	private function loadAndPrepareWeatherData(&$weatherData): void {
 		$apiResponse = $this->fetchWeatherDataFromApi($weatherData);
 
 		if (!$apiResponse || !$this->validateApiResponse($apiResponse)) {

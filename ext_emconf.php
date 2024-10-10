@@ -11,28 +11,17 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Open Weather Map',
+	'title' => 'OpenWeathermap',
 	'description' => '',
 	'category' => 'plugin',
 	'author' => 'Jari-Herman Ernst',
-	'author_email' => 'jhernst@network-publishing.de',
-	'author_company' => 'network.publishing GmbH',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
-	'state' => 'stable',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'modify_tables' => '',
-	'clearCacheOnLoad' => 0,
-	'lockType' => '',
-	'version' => '1.1.0',
+	'author_email' => 'webdev@jhernst.de',
+	'author_company' => '',
+	'state' => 'beta',
+	'version' => '11.0.1',
 	'constraints' => array(
 		'depends' => array(
-			'extbase' => '6.2',
-			'fluid' => '6.2',
-			'typo3' => '6.2.x-6.2.99',
+			'typo3' => '11.5.0-11.5.99',
 		),
 		'conflicts' => array(
 		),
