@@ -15,37 +15,41 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 class WeatherController extends ActionController {
 
 	public function showAction(): ResponseInterface {
+		$weatherData = $this->initializeWeatherData();
 
-		// Initialize weather data array with defaults to avoid undefined index errors.
-		$weatherData = [
-			'dataError' => false,
-			'apiKeyError' => false,
-			'apiUrlError' => false,
-			'feuserError' => false,
-			'city' => '',
-			'weather' => [],
-			'temperature' => 0,
-			'temperature_min' => 0,
-			'temperature_max' => 0,
-			'dayOrNight' => '',
-			'lang' => ''
-		];
-
-		// Test for given Openweathermap API KEY within the ts constant settings
-		if(!isset($this->settings['openweathermapApiKey']) || empty($this->settings['openweathermapApiKey'])) {
-			$weatherData['apiKeyError'] = true;
-		}
-
-		// Attempt to configure the API settings and load the weather data.
-		if ($this->configureApiSettings($weatherData)) {
-			$this->loadAndPrepareWeatherData($weatherData);
-		}
+        if ($this->isApiKeyMissing()) {
+            $weatherData['apiKeyError'] = true;
+        } else {
+            if ($this->configureApiSettings($weatherData)) {
+                $this->loadAndPrepareWeatherData($weatherData);
+            }
+        }
 
 		// Assign the prepared or defaulted weather data to the view.
 		$this->view->assign('weatherData', $weatherData);
 
 		return $this->htmlResponse();
 	}
+
+	private function initializeWeatherData(): array {
+        return [
+            'dataError' => false,
+            'apiKeyError' => false,
+            'apiUrlError' => false,
+            'feuserError' => false,
+            'city' => '',
+            'weather' => [],
+            'temperature' => 0,
+            'temperature_min' => 0,
+            'temperature_max' => 0,
+            'dayOrNight' => '',
+            'lang' => ''
+        ];
+    }
+
+    private function isApiKeyMissing(): bool {
+        return !isset($this->settings['openweathermapApiKey']) || empty($this->settings['openweathermapApiKey']);
+    }
 
 	private function configureApiSettings(&$weatherData) {
 		$settings = $this->initializeSettings();
