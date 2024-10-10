@@ -15,10 +15,15 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 class WeatherController extends ActionController {
 
 	public function showAction(): ResponseInterface {
+
+		DebugUtility::debug($this->settings);
+
 		// Initialize weather data array with defaults to avoid undefined index errors.
 		$weatherData = [
 			'dataError' => false,
-			'error' => false,
+			'apiKeyError' => false,
+			'apiUrlError' => false,
+			'feuserError' => false,
 			'city' => '',
 			'weather' => [],
 			'temperature' => 0,
@@ -27,6 +32,11 @@ class WeatherController extends ActionController {
 			'dayOrNight' => '',
 			'lang' => ''
 		];
+
+		// Test for given Openweathermap API KEY within the ts constant settings
+		if(!isset($this->settings['openweathermapApiKey']) || empty($this->settings['openweathermapApiKey'])) {
+			$weatherData['apiKeyError'] = true;
+		}
 
 		// Attempt to configure the API settings and load the weather data.
 		if ($this->configureApiSettings($weatherData)) {
@@ -47,7 +57,7 @@ class WeatherController extends ActionController {
 			return false;
 		}
 
-		if (!$this->applyPluginSpecificSettings($settings)) {
+		if (!$this->applyPluginSpecificSettings($settings, $weatherData)) {
 			$weatherData['dataError'] = true;
 			return false;
 		}
@@ -88,7 +98,7 @@ class WeatherController extends ActionController {
 		return $this->checkAndSetSettings($requiredApiSettings, $settings, $this->settings);
 	}
 
-	private function applyPluginSpecificSettings(&$settings) {
+	private function applyPluginSpecificSettings(&$settings, &$weatherData) {
 		$pluginType = $this->settings['pluginType'] ?? '';
 		$pluginTypesSettingsMap = $this->getPluginTypesSettingsMap($pluginType);
 
@@ -96,6 +106,12 @@ class WeatherController extends ActionController {
 			/** @var FrontendUserAuthentication $fe_user */
 			$fe_user = $this->request->getAttribute('frontend.user');
 			$source = $fe_user ? $fe_user->user : [];
+
+			// Provide an error state if no user is currently logged in
+			if(empty($source)){
+				$weatherData['feuserError'] = true;
+			}
+
 		} else {
 			$source = $this->settings;
 		}
@@ -129,11 +145,11 @@ class WeatherController extends ActionController {
 		];
 	}
 
-	private function loadAndPrepareWeatherData(&$weatherData) {
+	private function loadAndPrepareWeatherData(&$weatherData): void {
 		$apiResponse = $this->fetchWeatherDataFromApi($weatherData);
 
 		if (!$apiResponse || !$this->validateApiResponse($apiResponse)) {
-			$weatherData['error'] = true;
+			$weatherData['apiUrlError'] = true;
 			return;
 		}
 

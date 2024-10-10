@@ -305,6 +305,12 @@
 			<trans-unit id="api.error" resname="api.error">
 				<target>Leider besteht aktuell ein Problem mit der API von OpenWeathermap und es können keine Daten angezeigt werden.</target>
 			</trans-unit>
+			<trans-unit id="api.key.error" resname="api.key.error">
+				<target>In den TypoScript-Konstanten der Erweiterung ist kein OpenWeathermap-API-Schlüssel hinterlegt.</target>
+			</trans-unit>
+			<trans-unit id="api.url.error" resname="">
+				<target>Die Openweathermap-API -URL ist aktuell nicht erreichbar. Bitte prüfen Sie Ihre Angabe.</target>
+			</trans-unit>
 			<trans-unit id="data.error" resname="data.error">
 				<target>Es liegt ein Problem bei der Konfiguration der Extension vor. Bitte prüfen Sie die Einstellungen.</target>
 			</trans-unit>
