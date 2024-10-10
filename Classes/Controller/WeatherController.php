@@ -13,11 +13,29 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
  */
 class WeatherController extends ActionController {
 
-	public function showAction() {
-		// Initialize weather data array with defaults to avoid undefined index errors.
-		$weatherData = [
+	public function showAction(): \Psr\Http\Message\ResponseInterface {
+		$weatherData = $this->initializeWeatherData();
+		
+		// Attempt to configure the API settings and load the weather data.
+		if ($this->isApiKeyMissing()) {
+			$weatherData['apiKeyError'] = true;
+		} else {
+			if ($this->configureApiSettings($weatherData)) {
+				$this->loadAndPrepareWeatherData($weatherData);
+			}
+		}
+
+		// Assign the prepared or defaulted weather data to the view.
+		$this->view->assign('weatherData', $weatherData);
+  		return $this->htmlResponse();
+	}
+
+	private function initializeWeatherData(): array {
+		return [
 			'dataError' => false,
-			'error' => false,
+			'apiKeyError' => false,
+			'apiUrlError' => false,
+			'feuserError' => false,
 			'city' => '',
 			'weather' => [],
 			'temperature' => 0,
@@ -26,14 +44,10 @@ class WeatherController extends ActionController {
 			'dayOrNight' => '',
 			'lang' => ''
 		];
+	}
 
-		// Attempt to configure the API settings and load the weather data.
-		if ($this->configureApiSettings($weatherData)) {
-			$this->loadAndPrepareWeatherData($weatherData);
-		}
-
-		// Assign the prepared or defaulted weather data to the view.
-		$this->view->assign('weatherData', $weatherData);
+	private function isApiKeyMissing(): bool {
+		return !isset($this->settings['openweathermapApiKey']) || empty($this->settings['openweathermapApiKey']);
 	}
 
 	private function configureApiSettings(&$weatherData) {
@@ -93,6 +107,12 @@ class WeatherController extends ActionController {
 			/** @var FrontendUserAuthentication $fe_user */
 			$fe_user = $this->request->getAttribute('frontend.user');
 			$source = $fe_user ? $fe_user->user : [];
+
+			// Provide an error state if no user is currently logged in
+			if(empty($source)){
+				$weatherData['feuserError'] = true;
+			}
+
 		} else {
 			$source = $this->settings;
 		}
@@ -126,20 +146,21 @@ class WeatherController extends ActionController {
 		];
 	}
 
-	private function loadAndPrepareWeatherData(&$weatherData) {
+	private function loadAndPrepareWeatherData(&$weatherData): void {
 		$apiResponse = $this->fetchWeatherDataFromApi($weatherData);
 
 		if (!$apiResponse || !$this->validateApiResponse($apiResponse)) {
-			$weatherData['error'] = true;
+			$weatherData['apiUrlError'] = true;
 			return;
 		}
 
 		// Populate weather data array with values derived from the API response.
 		$weatherData['city'] = $weatherData['currentcity'];
 		$weatherData['weather'] = $apiResponse->weather;
-		$weatherData['temperature'] = $this->convertKelvinToCelsius($apiResponse->main->temp);
-		$weatherData['temperature_min'] = $this->convertKelvinToCelsius($apiResponse->main->temp_min);
-		$weatherData['temperature_max'] = $this->convertKelvinToCelsius($apiResponse->main->temp_max);
+		$weatherData['unit'] = $weatherData['apiunits'];
+		$weatherData['temperature'] = $apiResponse->main->temp;
+		$weatherData['temperature_min'] = $apiResponse->main->temp_min;
+		$weatherData['temperature_max'] = $apiResponse->main->temp_max;
 		$weatherData['dayOrNight'] = $this->getTimeOfDaySuffix($apiResponse);
 		$weatherData['lang'] = $weatherData['apilang'];
 	}
@@ -163,7 +184,7 @@ class WeatherController extends ActionController {
 		// Logic to construct API request URL based on the apiversion and other settings...
 		// Similar to the original snippet, but encapsulated within this method for clarity.
 		if($settings['apiversion'] == '2.5'){
-			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/weather?q=' . $settings['currentzip'] . ',' . $settings['apicountry'] . '&APPID=' . $settings['apikey'];
+			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/weather?q=' . $settings['currentzip'] . ',' . $settings['apicountry'] . '&APPID=' . $settings['apikey'] . '&units=' . $settings['apiunits'];
 		}
 		if($settings['apiversion'] == '3.0'){
 			//TODO: Test this settings with api 3.0 which has to be paid for
@@ -171,17 +192,10 @@ class WeatherController extends ActionController {
 			$locationResponse = file_get_contents($locationRequest);
 			$locationsJsonObj = json_decode($locationResponse);
 			// https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid={API key}
-			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/onecall?lat=' . $locationsJsonObj->lat . '&lon=' . $locationsJsonObj->lon . '&appid=' . $settings['apikey'];
+			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/onecall?lat=' . $locationsJsonObj->lat . '&lon=' . $locationsJsonObj->lon . '&appid=' . $settings['apikey'] . '&units=' . $settings['apiunits'];
 		}
 
 		return $requestUrl;
-	}
-
-	public function convertKelvinToCelsius($temperature) {
-		if (!is_numeric($temperature)) {
-			return false;
-		}
-		return round($temperature - 273.15);
 	}
 
 	public function checkAndSetSettings(array $requiredKeys, array &$settings, $source) {

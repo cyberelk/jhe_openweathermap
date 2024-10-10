@@ -232,6 +232,12 @@
 			<trans-unit id="api.error" resname="">
 				<source>Unfortunately, there is currently a problem with the OpenWeathermap API and no data can be displayed.</source>
 			</trans-unit>
+			<trans-unit id="api.key.error" resname="">
+				<source>There is no OpenWeathermap API Key deposited within the extension typoscript constants.</source>
+			</trans-unit>
+			<trans-unit id="api.url.error" resname="">
+				<source>The Openweathermap API URL is currently not available. Please check your entry.</source>
+			</trans-unit>
 			<trans-unit id="data.error" resname="">
 				<source>There is a problem with the configuration of the extension. Please check the settings.</source>
 			</trans-unit>
