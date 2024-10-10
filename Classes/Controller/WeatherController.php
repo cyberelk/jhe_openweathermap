@@ -16,8 +16,6 @@ class WeatherController extends ActionController {
 
 	public function showAction(): ResponseInterface {
 
-		DebugUtility::debug($this->settings);
-
 		// Initialize weather data array with defaults to avoid undefined index errors.
 		$weatherData = [
 			'dataError' => false,
