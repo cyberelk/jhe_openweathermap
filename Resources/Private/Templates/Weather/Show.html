@@ -3,34 +3,58 @@
 
 <p class="jhe-openweathermap">
 
-	<f:if condition="{weatherData.error} === false">
+	<f:switch expression="{weatherData.apiunits}">
+    	<f:case value="metric">
+			<f:variable name="unit">C</f:variable>
+		</f:case>
+    	<f:case value="imperial">
+			<f:variable name="unit">F</f:variable>
+		</f:case>
+	</f:switch>
+
+	<f:if condition="{weatherData.apiKeyError} === false">
 		<f:then>
-			<f:if condition="{weatherData.dataError} === false">
+			<f:if condition="{weatherData.feuserError} === false">
 				<f:then>
-					<span>
-						<f:translate key="show.label.beforecity"/>{weatherData.city}: 
-					</span>
-					<f:for each="{weatherData.weather}" as="icon" iteration="i">
-						<i class="owf owf-{icon.id}{weatherData.dayOrNight} icon" title="{f:translate(key:'{icon.id}')}"></i>
-					</f:for>
-					<span>
-						<f:translate key="show.label.currently" />{weatherData.temperature}&deg;C</span>&nbsp;<span><small>({weatherData.temperature_min} - {weatherData.temperature_max}&deg;C)</small>
-					</span>
-				</f:then>
-				<f:else>
-					<f:if condition="{weatherData.city} !== ''">
+					<f:if condition="{weatherData.apiUrlError} === false">
 						<f:then>
-							<f:translate key="data.error" />				
+							<f:if condition="{weatherData.dataError} === false">
+								<f:then>
+									<span>
+										<f:translate key="show.label.beforecity"/>{weatherData.city}: 
+									</span>
+									<f:for each="{weatherData.weather}" as="icon" iteration="i">
+										<i class="owf owf-{icon.id}{weatherData.dayOrNight} icon" title="{f:translate(key:'{icon.id}')}"></i>
+									</f:for>
+									<span>
+										<f:translate key="show.label.currently" />{weatherData.temperature -> f:format.number(decimals: 0)}&deg;{unit}</span>&nbsp;<span><small>({weatherData.temperature_min -> f:format.number(decimals: 0)} - {weatherData.temperature_max -> f:format.number(decimals: 0)}&deg;{unit})</small>
+									</span>
+								</f:then>
+								<f:else>
+									<span style="color: red; font-weight: bold;">
+										<f:translate key="data.error" />				
+									</span>
+								</f:else>
+							</f:if>
 						</f:then>
 						<f:else>
-							<f:translate key="feuser.error" />				
+							<span style="color: red; font-weight: bold;">
+								<f:translate key="api.url.error" />
+							</span>
 						</f:else>
 					</f:if>
+				</f:then>
+				<f:else>
+					<span style="color: red; font-weight: bold;">
+						<f:translate key="feuser.error" />				
+					</span>
 				</f:else>
 			</f:if>
 		</f:then>
 		<f:else>
-			<f:translate key="api.error" />
+			<span style="color: red; font-weight: bold;">
+				<f:translate key="api.key.error" />
+			</span>
 		</f:else>
 	</f:if>
 
