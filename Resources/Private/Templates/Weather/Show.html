@@ -3,6 +3,15 @@
 
 <p class="jhe-openweathermap">
 
+	<f:switch expression="{weatherData.apiunits}">
+    	<f:case value="metric">
+			<f:variable name="unit">C</f:variable>
+		</f:case>
+    	<f:case value="imperial">
+			<f:variable name="unit">F</f:variable>
+		</f:case>
+	</f:switch>
+
 	<f:if condition="{weatherData.apiKeyError} === false">
 		<f:then>
 			<f:if condition="{weatherData.feuserError} === false">
@@ -18,7 +27,7 @@
 										<i class="owf owf-{icon.id}{weatherData.dayOrNight} icon" title="{f:translate(key:'{icon.id}')}"></i>
 									</f:for>
 									<span>
-										<f:translate key="show.label.currently" />{weatherData.temperature}&deg;C</span>&nbsp;<span><small>({weatherData.temperature_min} - {weatherData.temperature_max}&deg;C)</small>
+										<f:translate key="show.label.currently" />{weatherData.temperature -> f:format.number(decimals: 0)}&deg;{unit}</span>&nbsp;<span><small>({weatherData.temperature_min -> f:format.number(decimals: 0)} - {weatherData.temperature_max -> f:format.number(decimals: 0)}&deg;{unit})</small>
 									</span>
 								</f:then>
 								<f:else>

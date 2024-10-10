@@ -22,8 +22,8 @@ plugin.tx_jheopenweathermap {
 		openWeatherMapApiCountry = de
 		# cat=plugin.tx_jheopenweathermap/settings/005; type=string; label=OpenWeatherMap API Language
 		openWeatherMapApiLang = de
-		# cat=plugin.tx_jheopenweathermap/settings/006; type=string; label=OpenWeatherMap API Units
-		openWeatherMapApiUnits = metric
+		# cat=plugin.tx_jheopenweathermap/settings/006; type=options[Metric (Celsius)=metric, Imperial (Fahrenheit)=imperial]; label=OpenWatherMap API Units
+		openWeatherMapApiUnits = standard
 		# cat=plugin.tx_jheopenweathermap/settings/007; type=string; label=Default zip
 		defaultZip = 13053
 		# cat=plugin.tx_jheopenweathermap/settings/008; type=string; label=Default city

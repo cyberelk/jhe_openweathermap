@@ -154,9 +154,10 @@ class WeatherController extends ActionController {
 		// Populate weather data array with values derived from the API response.
 		$weatherData['city'] = $weatherData['currentcity'];
 		$weatherData['weather'] = $apiResponse->weather;
-		$weatherData['temperature'] = $this->convertKelvinToCelsius($apiResponse->main->temp);
-		$weatherData['temperature_min'] = $this->convertKelvinToCelsius($apiResponse->main->temp_min);
-		$weatherData['temperature_max'] = $this->convertKelvinToCelsius($apiResponse->main->temp_max);
+		$weatherData['unit'] = $weatherData['apiunits'];
+		$weatherData['temperature'] = $apiResponse->main->temp;
+		$weatherData['temperature_min'] = $apiResponse->main->temp_min;
+		$weatherData['temperature_max'] = $apiResponse->main->temp_max;
 		$weatherData['dayOrNight'] = $this->getTimeOfDaySuffix($apiResponse);
 		$weatherData['lang'] = $weatherData['apilang'];
 	}
@@ -177,10 +178,8 @@ class WeatherController extends ActionController {
 	}
 
 	private function buildApiRequestUrl($settings) {
-		// Logic to construct API request URL based on the apiversion and other settings...
-		// Similar to the original snippet, but encapsulated within this method for clarity.
 		if($settings['apiversion'] == '2.5'){
-			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/weather?q=' . $settings['currentzip'] . ',' . $settings['apicountry'] . '&APPID=' . $settings['apikey'];
+			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/weather?q=' . $settings['currentzip'] . ',' . $settings['apicountry'] . '&APPID=' . $settings['apikey'] . '&units=' . $settings['apiunits'];
 		}
 		if($settings['apiversion'] == '3.0'){
 			//TODO: Test this settings with api 3.0 which has to be paid for
@@ -188,17 +187,10 @@ class WeatherController extends ActionController {
 			$locationResponse = file_get_contents($locationRequest);
 			$locationsJsonObj = json_decode($locationResponse);
 			// https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid={API key}
-			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/onecall?lat=' . $locationsJsonObj->lat . '&lon=' . $locationsJsonObj->lon . '&appid=' . $settings['apikey'];
+			$requestUrl = $settings['apiurl'] . $settings['apiversion'] . '/onecall?lat=' . $locationsJsonObj->lat . '&lon=' . $locationsJsonObj->lon . '&appid=' . $settings['apikey'] . '&units=' . $settings['apiunits'];
 		}
 
 		return $requestUrl;
-	}
-
-	public function convertKelvinToCelsius($temperature) {
-		if (!is_numeric($temperature)) {
-			return false;
-		}
-		return round($temperature - 273.15);
 	}
 
 	public function checkAndSetSettings(array $requiredKeys, array &$settings, $source) {
