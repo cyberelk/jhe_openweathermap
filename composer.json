@@ -10,9 +10,9 @@
       "homepage": "https://www.jhernst.de"
     }
   ],
-  "version": "dev-typo3v12",
+  "version": "dev-typo3v13",
   "require": {
-    "typo3/cms-core": "~12.4"
+    "typo3/cms-core": "~13"
   },
   "autoload": {
     "psr-4": {
